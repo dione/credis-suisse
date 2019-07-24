@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    url: jdbc:hsqldb:file:./db/
+  jpa:
+    #    show-sql: true
+    # on production it will be better to use flyway or something similar
+    hibernate:
+      ddl-auto: update
+
+com.test.events-correlator:
+  max-duration: 4
+
+---
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: org.hsqldb.jdbc.JDBCDriver
+    url: jdbc:hsqldb:file:./db-test/
+  jpa:
+    show-sql: true
